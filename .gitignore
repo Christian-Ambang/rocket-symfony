@@ -24,3 +24,6 @@
 
 # composer install a faire 
 vendor/
+
+# ignore var folder
+var/
