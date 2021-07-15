@@ -27,3 +27,6 @@ vendor/
 
 # ignore var folder
 var/
+
+# ignore folder created by PHP Storm
+.idea/
