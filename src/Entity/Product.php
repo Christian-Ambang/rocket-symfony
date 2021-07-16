@@ -20,12 +20,24 @@ class Product
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string")
+     * @Assert\Length(
+     *      min = 2,
+     *      max = 50,
+     *      minMessage = "Your product name must be at least {{ limit }} characters long",
+     *      maxMessage = "Your product name cannot be longer than {{ limit }} characters"
+     * )
      */
     private $name;
 
     /**
      * @ORM\Column(type="text", nullable=true)
+     * @Assert\Length(
+     *      min = 15,
+     *      max = 320,
+     *      minMessage = "Your product description must be at least {{ limit }} characters long",
+     *      maxMessage = "Your product description cannot be longer than {{ limit }} characters"
+     * )
      */
     private $description;
 
@@ -41,6 +53,8 @@ class Product
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\Url
+     *
      */
     private $image;
 
