@@ -1,48 +1,48 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Product{% endblock %}
+{% block title %}{{ "Product" | trans }}{% endblock %}
 
 {% block body %}
-    <h1>Product</h1>
+    <h1>{{ "Product" | trans }}</h1>
 
     <table class="table">
         <tbody>
             <tr>
-                <th>Id</th>
+                <th>{{ "ID" | trans }}</th>
                 <td>{{ product.id }}</td>
             </tr>
             <tr>
-                <th>Name</th>
+                <th>{{ "Name" | trans }}</th>
                 <td>{{ product.name }}</td>
             </tr>
             <tr>
-                <th>Description</th>
+                <th>{{ "Description" | trans }}</th>
                 <td>{{ product.description }}</td>
             </tr>
             <tr>
-                <th>Price</th>
-                <td>{{ product.price }}</td>
+                <th>{{ "Price" | trans }}</th>
+                <td>{{ product.price }} €</td>
             </tr>
             <tr>
-                <th>Stock</th>
+                <th>{{ "Stock" | trans }}</th>
                 <td>{{ product.stock }}</td>
             </tr>
             <tr>
-                <th>Image</th>
+                <th>{{ "Image" | trans }}</th>
                 <td>{{ product.image }}</td>
             </tr>
         </tbody>
     </table>
 
-    <a href="{{ path('product_index') }}">back to list</a>
+    <a href="{{ path('product_index') }}">{{ "Back to list" | trans }}</a>
 
     {# {{ dump(cart) }} #}
     {% if app.user is not null %}
-        <a href="{{ path('cart_new') }}">add to cart</a>
+        <a href="{{ path('cart_new') }}">{{ "Add to cart" | trans }}</a>
     {% endif %}
 
     {% if is_granted("ROLE_ADMIN") %}
-        <a href="{{ path('product_edit', {'id': product.id}) }}">edit</a>
+        <a href="{{ path('product_edit', {'id': product.id}) }}">{{ "edit" | trans }}</a>
 
         {{ include('product/_delete_form.html.twig') }}
     {% endif %}

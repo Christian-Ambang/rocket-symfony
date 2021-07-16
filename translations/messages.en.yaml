@@ -1,8 +1,9 @@
-
-
 ## CRUD
 product:
     added: Add a product
     empty: No product found
+    new: New product
+    list: Product list
+    update: Update product
 
 

@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Product index{% endblock %}
+{% block title %}{{ "product.list" | trans }}{% endblock %}
 
 {% block body %}
-    <h1>Product index</h1>
+    <h1>{{ "product.list" | trans }}</h1>
 
     {% include 'product/_productList.html.twig' with {'products': products} %}
 
