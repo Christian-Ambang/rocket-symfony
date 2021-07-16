@@ -41,4 +41,9 @@ security:
         - { path: ^/fr/product/delete, roles: ROLE_ADMIN }
         - { path: ^/en/product/new, roles: ROLE_USER }
         - { path: ^/fr/product/new, roles: ROLE_USER }
+        ## User
+        - { path: ^/en/user/all, roles: ROLE_ADMIN }
+        - { path: ^/fr/user/all, roles: ROLE_ADMIN }
+        - { path: ^/en/user/delete, roles: ROLE_ADMIN }
+        - { path: ^/fr/user/delete, roles: ROLE_ADMIN }
         #- { path: ^/profile, roles: ROLE_USER }
