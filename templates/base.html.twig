@@ -15,6 +15,14 @@
         {% endblock %}
     </head>
     <body>
+    <nav>
+        <ul>
+            <li><a href="{{ path('home') }}">{{ "Home" | trans }}</a></li>
+            <li><a href="{{ path('product_index') }}">{{ "Product" | trans }}</a></li>
+{#            <li><a href="{{ path('user_show', { 'id': id }) }}">{{ "My account" | trans }}</a></li>
+            <li><a href="{{ path('cart_show', { 'id': id }) }}">{{ "Cart" | trans }}</a></li>#}
+        </ul>
+    </nav>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
                 <div class="collapse navbar-collapse">
