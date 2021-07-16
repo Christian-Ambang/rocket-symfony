@@ -19,5 +19,14 @@ user:
     update: Update user
     deleted?: Do you want to deleted this user?
     deleted: The user %mail% has been deleted
-
+cart:
+    added: Add an order
+    created: The order %ID% has been created
+    edited: The order %ID% has been updated
+    empty: No order found
+    new: New order
+    list: Order list
+    update: Update order
+    deleted?: Do you want to deleted this order?
+    deleted: The order %ID% has been deleted
 
