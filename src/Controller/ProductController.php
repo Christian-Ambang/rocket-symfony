@@ -40,7 +40,7 @@ class ProductController extends AbstractController
             $entityManager->persist($product);
             $entityManager->flush();
 
-            $this->addFlash('success', $t->trans('product.created'));
+            $this->addFlash('success', $t->trans('product.created', ['%name%' => $product->getName()]));
             return $this->redirectToRoute('product_index', [], Response::HTTP_SEE_OTHER);
         }
 
@@ -77,7 +77,7 @@ class ProductController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            $this->addFlash('success', $t->trans('product.edited'));
+            $this->addFlash('success', $t->trans('product.edited', ['%name%' => $product->getName()]));
             return $this->redirectToRoute('product_index', [], Response::HTTP_SEE_OTHER);
         }
 
@@ -97,7 +97,7 @@ class ProductController extends AbstractController
             $entityManager->remove($product);
             $entityManager->flush();
         }
-        $this->addFlash('warning', $t->trans('product.deleted'));
+        $this->addFlash('warning', $t->trans('product.deleted', ['%name%' => $product->getName()]));
         return $this->redirectToRoute('product_index', [], Response::HTTP_SEE_OTHER);
     }
 }
