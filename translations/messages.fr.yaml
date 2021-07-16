@@ -1,1 +1,25 @@
+## Home
+Log in: Connexion
+Log out: Déconnection
+Register: S'inscrire
+Cart: Panier
+My account: Mon compte
+
 Home: Accueil
+Product: Produit
+
+## CRUD
+Delete: Supprimer
+show: voir
+edit: modifier
+product:
+    added: Creer un produit
+    empty: Pas de produit trouvé
+actions: actions
+
+## Product
+Name: Nom
+Description: Description
+Price: Prix
+Stock: Quantité
+Image: Image

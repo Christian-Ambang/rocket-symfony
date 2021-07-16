@@ -1,13 +1,13 @@
 <table class="table">
     <thead>
         <tr>
-            <th>Id</th>
-            <th>Name</th>
-            <th>Description</th>
-            <th>Price</th>
-            <th>Stock</th>
-            <th>Image</th>
-            <th>actions</th>
+            <th>{{ "ID" | trans }}</th>
+            <th>{{ "Name" | trans }}</th>
+            <th>{{ "Description" | trans }}</th>
+            <th>{{ "Price" | trans }}</th>
+            <th>{{ "Stock" | trans }}</th>
+            <th>{{ "Image" | trans }}</th>
+            <th>{{ "actions" | trans}}</th>
         </tr>
     </thead>
     <tbody>
@@ -20,20 +20,20 @@
             <td>{{ product.stock }}</td>
             <td>{{ product.image }}</td>
             <td>
-                <a href="{{ path('product_show', {'id': product.id}) }}">show</a>
+                <a href="{{ path('product_show', {'id': product.id}) }}">{{ "show" | trans }}</a>
                 {% if is_granted("ROLE_ADMIN") %}
-                    <a href="{{ path('product_edit', {'id': product.id}) }}">edit</a>
+                    <a href="{{ path('product_edit', {'id': product.id}) }}">{{ "edit" | trans }}</a>
                 {% endif %}
             </td>
         </tr>
     {% else %}
         <tr>
-            <td colspan="7">no records found</td>
+            <td colspan="7">{{ "product.empty" | trans }}</td>
         </tr>
     {% endfor %}
     </tbody>
 </table>
 
 {% if is_granted("ROLE_ADMIN") %}
-    <a href="{{ path('product_new') }}">Create new</a>
+    <a href="{{ path('product_new') }}">{{ "product.added" | trans }}</a>
 {% endif %}
