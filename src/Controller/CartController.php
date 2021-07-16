@@ -13,7 +13,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/cart")
+ * @Route("/{_locale}/cart")
  */
 class CartController extends AbstractController
 {
