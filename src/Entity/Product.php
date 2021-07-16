@@ -43,18 +43,19 @@ class Product
 
     /**
      * @ORM\Column(type="float")
+     * @Assert\PositiveOrZero
      */
     private $price;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
+     * @Assert\PositiveOrZero
      */
     private $stock;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      * @Assert\Url
-     *
      */
     private $image;
 
