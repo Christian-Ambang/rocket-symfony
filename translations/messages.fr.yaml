@@ -7,6 +7,7 @@ My account: Mon compte
 
 Home: Accueil
 Product: Produit
+User: Utilisateur
 
 ## CRUD
 Delete: Supprimer
@@ -21,6 +22,14 @@ product:
     update: Modifier le produit
     deleted?: Voulez vous supprimer ce produit?
     deleted: Le produit à bien été supprimé
+user:
+    added: Creer un utilisateur
+    empty: Pas d'utilisateur trouvé
+    new: Nouvel utilisateur
+    list: Liste des utilisateur
+    update: Modifier l'utilisateur
+    deleted?: Voulez vous supprimer cet utilisateur?
+    deleted: L'utilisateur à bien été supprimé
 actions: actions
 Back to list: Revenir à la liste
 Save: Enregistrer
@@ -30,7 +39,10 @@ Add to cart: Ajouter au panier
 
 ## Product
 Name: Nom
-Description: Description
 Price: Prix
 Stock: Quantité
-Image: Image
+
+## User
+Password: Mot de passe
+Firstname: Prénom
+Lastname: Nom

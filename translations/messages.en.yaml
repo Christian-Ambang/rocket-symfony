@@ -7,5 +7,13 @@ product:
     update: Update product
     deleted?: Do you want to deleted this product?
     deleted: The product has been deleted
+user:
+    added: Add a user
+    empty: No user found
+    new: New user
+    list: User list
+    update: Update user
+    deleted?: Do you want to deleted this user?
+    deleted: The user has been deleted
 
 
