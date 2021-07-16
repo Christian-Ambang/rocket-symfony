@@ -39,4 +39,6 @@ security:
         - { path: ^/fr/product/edit, roles: ROLE_ADMIN }
         - { path: ^/en/product/delete, roles: ROLE_ADMIN }
         - { path: ^/fr/product/delete, roles: ROLE_ADMIN }
+        - { path: ^/en/product/new, roles: ROLE_USER }
+        - { path: ^/fr/product/new, roles: ROLE_USER }
         #- { path: ^/profile, roles: ROLE_USER }
