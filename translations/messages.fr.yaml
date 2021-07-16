@@ -19,6 +19,8 @@ product:
     new: Nouveau produit
     list: Liste des produits
     update: Modifier le produit
+    deleted?: Voulez vous supprimer ce produit?
+    deleted: Le produit à bien été supprimé
 actions: actions
 Back to list: Revenir à la liste
 Save: Enregistrer

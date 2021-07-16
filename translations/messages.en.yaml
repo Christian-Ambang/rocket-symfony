@@ -5,5 +5,7 @@ product:
     new: New product
     list: Product list
     update: Update product
+    deleted?: Do you want to deleted this product?
+    deleted: The product has been deleted
 
 
