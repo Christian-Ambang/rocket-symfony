@@ -1,6 +1,6 @@
 ## Home
 Log in: Connexion
-Log out: Déconnection
+Log out: Déconnexion
 Register: S'inscrire
 Cart: Panier
 My account: Mon compte
@@ -16,20 +16,34 @@ edit: modifier
 Update: Appliquer
 product:
     added: Creer un produit
+    created: Le produit %name% a été crée
+    edited: Le produit %name% a été mis a jour
     empty: Pas de produit trouvé
     new: Nouveau produit
     list: Liste des produits
     update: Modifier le produit
     deleted?: Voulez vous supprimer ce produit?
-    deleted: Le produit à bien été supprimé
+    deleted: Le produit %name% à bien été supprimé
 user:
     added: Creer un utilisateur
+    created: L'utilisateur %mail% a été crée
+    edited: L'utilisateur %name% a été mis a jour
     empty: Pas d'utilisateur trouvé
     new: Nouvel utilisateur
     list: Liste des utilisateur
     update: Modifier l'utilisateur
     deleted?: Voulez vous supprimer cet utilisateur?
-    deleted: L'utilisateur à bien été supprimé
+    deleted: L'utilisateur %mail% à bien été supprimé
+cart:
+    added: Creer une commande
+    created: La commande %ID% a été crée
+    edited: La commande %ID% a été mis a jour
+    empty: Pas de commande trouvé
+    new: Nouvel commande
+    list: Liste des commandes
+    update: Modifier la commande
+    deleted?: Voulez vous supprimer cette commande?
+    deleted: La commande %ID% à bien été supprimée
 actions: actions
 Back to list: Revenir à la liste
 Save: Enregistrer
@@ -46,3 +60,7 @@ Stock: Quantité
 Password: Mot de passe
 Firstname: Prénom
 Lastname: Nom
+
+## Cart
+Purchase date: Date d'achat
+Paid: Payée

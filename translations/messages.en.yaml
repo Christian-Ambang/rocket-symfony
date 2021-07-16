@@ -1,19 +1,32 @@
 ## CRUD
 product:
     added: Add a product
+    created: The product %name% has been created
+    edited: The product %name% has been updated
     empty: No product found
     new: New product
     list: Product list
     update: Update product
     deleted?: Do you want to deleted this product?
-    deleted: The product has been deleted
+    deleted: The product %name% has been deleted
 user:
     added: Add a user
+    created: The user %mail% has been created
+    edited: The user %mail% has been updated
     empty: No user found
     new: New user
     list: User list
     update: Update user
     deleted?: Do you want to deleted this user?
-    deleted: The user has been deleted
-
+    deleted: The user %mail% has been deleted
+cart:
+    added: Add an order
+    created: The order %ID% has been created
+    edited: The order %ID% has been updated
+    empty: No order found
+    new: New order
+    list: Order list
+    update: Update order
+    deleted?: Do you want to deleted this order?
+    deleted: The order %ID% has been deleted
 
