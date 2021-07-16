@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\CartRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -13,6 +15,7 @@ class Cart
     public function __construct()
     {
         $this->purchase_date = new \DateTime();
+        $this->contentCarts = new ArrayCollection();
     }
 
     /**
@@ -39,9 +42,9 @@ class Cart
     private $paid;
 
     /**
-     * @ORM\OneToOne(targetEntity=ContentCart::class, mappedBy="cart", cascade={"persist", "remove"})
+     * @ORM\OneToMany(targetEntity=ContentCart::class, mappedBy="cart", orphanRemoval=true)
      */
-    private $contentCart;
+    private $contentCarts;
 
     public function getId(): ?int
     {
@@ -84,19 +87,32 @@ class Cart
         return $this;
     }
 
-    public function getContentCart(): ?ContentCart
+    /**
+     * @return Collection|ContentCart[]
+     */
+    public function getContentCarts(): Collection
     {
-        return $this->contentCart;
+        return $this->contentCarts;
     }
 
-    public function setContentCart(ContentCart $contentCart): self
+    public function addContentCart(ContentCart $contentCart): self
     {
-        // set the owning side of the relation if necessary
-        if ($contentCart->getCart() !== $this) {
+        if (!$this->contentCarts->contains($contentCart)) {
+            $this->contentCarts[] = $contentCart;
             $contentCart->setCart($this);
         }
 
-        $this->contentCart = $contentCart;
+        return $this;
+    }
+
+    public function removeContentCart(ContentCart $contentCart): self
+    {
+        if ($this->contentCarts->removeElement($contentCart)) {
+            // set the owning side to null (unless already changed)
+            if ($contentCart->getCart() === $this) {
+                $contentCart->setCart(null);
+            }
+        }
 
         return $this;
     }

@@ -20,17 +20,6 @@ class ContentCart
     private $id;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Product::class, inversedBy="contentCarts")
-     */
-    private $product;
-
-    /**
-     * @ORM\OneToOne(targetEntity=Cart::class, inversedBy="contentCart", cascade={"persist", "remove"})
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $cart;
-
-    /**
      * @ORM\Column(type="integer", nullable=true)
      */
     private $productQty;
@@ -40,51 +29,25 @@ class ContentCart
      */
     private $addToCartDate;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Product::class, inversedBy="contentCarts")
+     */
+    private $product;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Cart::class, inversedBy="contentCarts")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $cart;
+
     public function __construct()
     {
-        $this->product = new ArrayCollection();
         $this->addToCartDate = new \DateTime();
     }
 
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    /**
-     * @return Collection|Product[]
-     */
-    public function getProduct(): Collection
-    {
-        return $this->product;
-    }
-
-    public function addProduct(Product $product): self
-    {
-        if (!$this->product->contains($product)) {
-            $this->product[] = $product;
-        }
-
-        return $this;
-    }
-
-    public function removeProduct(Product $product): self
-    {
-        $this->product->removeElement($product);
-
-        return $this;
-    }
-
-    public function getCart(): ?Cart
-    {
-        return $this->cart;
-    }
-
-    public function setCart(Cart $cart): self
-    {
-        $this->cart = $cart;
-
-        return $this;
     }
 
     public function getProductQty(): ?int
@@ -110,9 +73,33 @@ class ContentCart
 
         return $this;
     }
+    
+    public function getProduct(): ?Product
+    {
+        return $this->product;
+    }
+    
+    public function setProduct(?Product $product): self
+    {
+        $this->product = $product;
+        
+        return $this;
+    }
+    
+    public function getCart(): ?Cart
+    {
+        return $this->cart;
+    }
+    
+    public function setCart(?Cart $cart): self
+    {
+        $this->cart = $cart;
+        
+        return $this;
+    }
 
     public function __toString()
     {
-        return (string )$this->id;
+        return (string) $this->id;
     }
 }

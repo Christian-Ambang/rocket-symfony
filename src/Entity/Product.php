@@ -45,7 +45,7 @@ class Product
     private $image;
 
     /**
-     * @ORM\ManyToMany(targetEntity=ContentCart::class, mappedBy="product")
+     * @ORM\OneToMany(targetEntity=ContentCart::class, mappedBy="product")
      */
     private $contentCarts;
 
@@ -119,6 +119,11 @@ class Product
         return $this;
     }
 
+    public function __toString()
+    {
+        return $this->name;
+    }
+
     /**
      * @return Collection|ContentCart[]
      */
@@ -131,7 +136,7 @@ class Product
     {
         if (!$this->contentCarts->contains($contentCart)) {
             $this->contentCarts[] = $contentCart;
-            $contentCart->addProduct($this);
+            $contentCart->setProduct($this);
         }
 
         return $this;
@@ -140,14 +145,12 @@ class Product
     public function removeContentCart(ContentCart $contentCart): self
     {
         if ($this->contentCarts->removeElement($contentCart)) {
-            $contentCart->removeProduct($this);
+            // set the owning side to null (unless already changed)
+            if ($contentCart->getProduct() === $this) {
+                $contentCart->setProduct(null);
+            }
         }
 
         return $this;
-    }
-
-    public function __toString()
-    {
-        return $this->name;
     }
 }
