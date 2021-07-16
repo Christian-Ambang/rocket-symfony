@@ -98,6 +98,7 @@ class Cart
         return $this->contentCarts;
     }
 
+
     public function addContentCart(ContentCart $contentCart): self
     {
         if (!$this->contentCarts->contains($contentCart)) {

@@ -2,7 +2,9 @@
 
 namespace App\Controller;
 
+use App\Entity\Cart;
 use App\Entity\ContentCart;
+use App\Entity\Product;
 use App\Form\ContentCartType;
 use App\Repository\ContentCartRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -90,5 +92,30 @@ class ContentCartController extends AbstractController
         }
 
         return $this->redirectToRoute('content_cart_index', [], Response::HTTP_SEE_OTHER);
+    }
+
+    /**
+     * @Route("/add/{id}", name="content_cart_add", methods={"GET","POST"})
+     */
+    public function addToCart(Product $product)
+    {
+        $cart = new Cart();
+        $contentCart = new ContentCart();
+        $contentCart->setProduct($product);
+        $contentCart->setProductQty(1);
+
+        $entityManager = $this->getDoctrine()->getManager();
+
+        $cart->addContentCart($contentCart);
+        $cart->setPaid(false);
+        $cart->setUser($this->getUser());
+
+        $entityManager->persist($contentCart);
+        $entityManager->persist($cart);
+        $entityManager->flush();
+
+        return $this->render('content_cart/show.html.twig', [
+            'content_cart' => $contentCart,
+        ]);
     }
 }

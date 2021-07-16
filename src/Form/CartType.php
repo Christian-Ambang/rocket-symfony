@@ -15,7 +15,7 @@ class CartType extends AbstractType
             // ->add('purchase_date')
             ->add('paid')
             ->add('user')
-            ->add('contentCart')
+            // ->add('contentCart')
         ;
     }
 
