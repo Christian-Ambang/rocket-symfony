@@ -12,10 +12,19 @@ Product: Produit
 Delete: Supprimer
 show: voir
 edit: modifier
+Update: Appliquer
 product:
     added: Creer un produit
     empty: Pas de produit trouvé
+    new: Nouveau produit
+    list: Liste des produits
+    update: Modifier le produit
 actions: actions
+Back to list: Revenir à la liste
+Save: Enregistrer
+
+## Cart
+Add to cart: Ajouter au panier
 
 ## Product
 Name: Nom
