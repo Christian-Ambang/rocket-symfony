@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use Symfony\Contracts\Translation\TranslatorInterface;
 use App\Entity\User;
 use App\Form\UserType;
 use App\Repository\UserRepository;
@@ -28,7 +29,7 @@ class UserController extends AbstractController
     /**
      * @Route("/new", name="user_new", methods={"GET","POST"})
      */
-    public function new(Request $request): Response
+    public function new(Request $request,TranslatorInterface $t): Response
     {
         $user = new User();
         $form = $this->createForm(UserType::class, $user);
@@ -39,6 +40,7 @@ class UserController extends AbstractController
             $entityManager->persist($user);
             $entityManager->flush();
 
+            $this->addFlash('success', $t->trans('user.created'));
             return $this->redirectToRoute('user_index', [], Response::HTTP_SEE_OTHER);
         }
 
@@ -61,7 +63,7 @@ class UserController extends AbstractController
     /**
      * @Route("/{id}/edit", name="user_edit", methods={"GET","POST"})
      */
-    public function edit(Request $request, User $user): Response
+    public function edit(Request $request, User $user,TranslatorInterface $t): Response
     {
         $form = $this->createForm(UserType::class, $user);
         $form->handleRequest($request);
@@ -69,6 +71,7 @@ class UserController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
+            $this->addFlash('success', $t->trans('user.edited'));
             return $this->redirectToRoute('user_index', [], Response::HTTP_SEE_OTHER);
         }
 
@@ -88,7 +91,7 @@ class UserController extends AbstractController
             $entityManager->remove($user);
             $entityManager->flush();
         }
-
+        $this->addFlash('warning', $t->trans('user.deleted'));
         return $this->redirectToRoute('user_index', [], Response::HTTP_SEE_OTHER);
     }
 }
