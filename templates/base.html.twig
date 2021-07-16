@@ -38,6 +38,10 @@
                 <li><a href="{{ path('home') }}">{{ "Home" | trans }}</a></li>
                 <li><a href="{{ path('product_index') }}">{{ "Product" | trans }}</a></li>
                 <li><a href="{{ path('user_index') }}">{{ "User" | trans }}</a></li>
+                <div>--debut-test--</div>
+                <li><a href="{{ path('cart_index') }}">{{ "Cart" | trans }}</a></li>
+                <li><a href="{{ path('content_cart_index') }}">{{ "ContentCart" | trans }}</a></li>
+                <div>--fin-test--</div>
             </ul>
         </nav>
         {% for type, messages in app.flashes %}
