@@ -34,9 +34,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     /**
      * @ORM\Column(type="json")
-     * @Assert\Json(
-     *     message = "You've entered an invalid Json."
-     * )
      */
     private $roles = [];
 

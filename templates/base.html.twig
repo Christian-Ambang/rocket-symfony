@@ -15,6 +15,8 @@
         {% endblock %}
     </head>
     <body>
+    <li><a href="{{ '/fr/' }}">{{ "FR" | trans }}</a></li>
+    <li><a href="{{ '/en/' }}">{{ "EN" | trans }}</a></li>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
                 <div class="collapse navbar-collapse">
@@ -35,6 +37,7 @@
             <ul>
                 <li><a href="{{ path('home') }}">{{ "Home" | trans }}</a></li>
                 <li><a href="{{ path('product_index') }}">{{ "Product" | trans }}</a></li>
+                <li><a href="{{ path('user_index') }}">{{ "User" | trans }}</a></li>
             </ul>
         </nav>
         {% for type, messages in app.flashes %}
