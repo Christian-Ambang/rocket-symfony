@@ -120,4 +120,9 @@ class Cart
 
         return $this;
     }
+
+    public function __toString()
+    {
+        return 'User: '. (string) $this->user .' | Cart id: '.$this->id;
+    }
 }
