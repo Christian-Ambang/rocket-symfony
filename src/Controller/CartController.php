@@ -18,7 +18,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class CartController extends AbstractController
 {
     /**
-     * @Route("/", name="cart_index", methods={"GET"})
+     * @Route("/all", name="cart_index", methods={"GET"})
      */
     public function index(CartRepository $cartRepository): Response
     {
