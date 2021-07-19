@@ -38,7 +38,7 @@
 
     {# {{ dump(cart) }} #}
     {% if app.user is not null %}
-        <a href="{{ path('cart_new') }}">{{ "Add to cart" | trans }}</a>
+        <a href="{{ path('content_cart_add', {'id': product.id}) }}">{{ "Add to cart" | trans }}</a>
     {% endif %}
 
     {% if is_granted("ROLE_ADMIN") %}

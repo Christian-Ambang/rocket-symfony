@@ -98,6 +98,7 @@ class Cart
         return $this->contentCarts;
     }
 
+
     public function addContentCart(ContentCart $contentCart): self
     {
         if (!$this->contentCarts->contains($contentCart)) {
@@ -118,5 +119,10 @@ class Cart
         }
 
         return $this;
+    }
+
+    public function __toString()
+    {
+        return 'User: '. (string) $this->user .' | Cart id: '.$this->id;
     }
 }
