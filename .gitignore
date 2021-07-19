@@ -30,3 +30,8 @@ var/
 
 # ignore folder created by PHP Storm
 .idea/
+
+# ignore user upload image
+public/uploads/*.png
+public/uploads/*.jpg
+public/uploads/*.jpeg
