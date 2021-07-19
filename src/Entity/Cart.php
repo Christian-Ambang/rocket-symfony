@@ -93,7 +93,7 @@ class Cart
     /**
      * @return Collection|ContentCart[]
      */
-    public function getContentCarts(): Collection
+    public function getContentCart(): Collection
     {
         return $this->contentCarts;
     }
@@ -123,6 +123,7 @@ class Cart
 
     public function __toString()
     {
-        return 'User: '. (string) $this->user .' | Cart id: '.$this->id;
+        // return 'User: '. (string) $this->user .' | Cart id: '.$this->id;
+        return $this->id;
     }
 }

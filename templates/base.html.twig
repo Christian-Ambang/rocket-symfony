@@ -15,7 +15,7 @@
         {% endblock %}
     </head>
     <body>
-    {# {{dump(path(app.request.attributes.get('_route'),app.request.query.all|merge(app.request.attributes.get('_route_params'))))}} #}
+    {# Rendre dynamique la route et les parametres avec trad #}
     <li><a href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')|merge(app.request.query.all|merge({"_locale":"fr" }))) }}">{{ "FR" | trans }}</a></li>
     <li><a href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')|merge(app.request.query.all|merge({"_locale":"en" }))) }}">{{ "EN" | trans }}</a></li>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">

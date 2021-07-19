@@ -10,19 +10,27 @@
             <tr>
                 <th>{{ "ID" | trans }}</th>
                 <th>{{ "Quantity" | trans }}</th>
+                <th>{{ "Price" | trans }}</th>
+                <th>{{ "Montant" | trans }}</th>
                 <th>{{ "Added the" | trans }}</th>
                 <th>{{ "actions" | trans }}</th>
             </tr>
         </thead>
         <tbody>
+        {% set total = 0 %}
         {% for content_cart in content_carts %}
+            {% set total = total + content_cart.productQty * content_cart.product.price %}
             <tr>
-                <td>{{ content_cart.id }}</td>
+                <td>{{ content_cart.product.name }}</td>
                 <td>{{ content_cart.productQty }}</td>
-                <td>{{ content_cart.addToCartDate ? content_cart.addToCartDate|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ content_cart.product.price }}</td>
+                <td>{{ content_cart.productQty * content_cart.product.price }}</td>
+                <td>{{ content_cart.addToCartDate ? content_cart.addToCartDate|date('d-m-Y H:i:s') : '' }}</td>
                 <td>
-                    <a href="{{ path('content_cart_show', {'id': content_cart.id}) }}">{{ "show" | trans }}</a>
-                    <a href="{{ path('content_cart_edit', {'id': content_cart.id}) }}">{{ "edit" | trans }}</a>
+                    <a href="{{ path('content_cart_show', {'id': content_cart.id}) }}" class="btn btn-success">{{ "show" | trans }}</a>
+                    {# <a href="{{ path('content_cart_edit', {'id': content_cart.id}) }}">{{ "edit" | trans }}</a> #}
+                    {# <a href="{{ path('product_cart_delete', {'id': content_cart.id}) }}" class="btn btn-danger">{{ "delete" | trans }}</a> #}
+                   <span style="display:inline-block"> {{ include('content_cart/_delete_form.html.twig') }}</span>
                 </td>
             </tr>
         {% else %}
@@ -33,5 +41,7 @@
         </tbody>
     </table>
 
-    <a href="{{ path('content_cart_new') }}">Create new</a>
+    {# <a href="{{ path('content_cart_new') }}">Create new</a> #}
+    <p>Montant total du panier: {{total}} </p>
+    <a class="btn btn-primary">Valider</a>
 {% endblock %}
