@@ -19,6 +19,14 @@ class CartRepository extends ServiceEntityRepository
         parent::__construct($registry, Cart::class);
     }
 
+    public function unpaidCart() {
+        $qb = $this->createQueryBuilder('cart')
+            ->orderBy('cart.purchase_date', 'ASC')
+            ->where('cart.paid = 0')
+        ;
+        $query = $qb->getQuery();
+        return $query->execute();
+    }
     // /**
     //  * @return Cart[] Returns an array of Cart objects
     //  */

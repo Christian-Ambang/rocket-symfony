@@ -27,6 +27,16 @@ class UserController extends AbstractController
     }
 
     /**
+     * @Route("/superadmin", name="superadmin_user_index", methods={"GET"})
+     */
+    public function superadmin_user_index(UserRepository $userRepository): Response
+    {
+        return $this->render('user/index.html.twig', [
+            'users' => $userRepository->findDailyRegister(),
+        ]);
+    }
+
+    /**
      * @Route("/new", name="user_new", methods={"GET","POST"})
      */
     public function new(Request $request,TranslatorInterface $t): Response
@@ -40,7 +50,7 @@ class UserController extends AbstractController
             $entityManager->persist($user);
             $entityManager->flush();
 
-            $this->addFlash('success', $t->trans('user.created'));
+            $this->addFlash('success', $t->trans('user.created', ['%mail%' => $user->getEmail()]));
             return $this->redirectToRoute('user_index', [], Response::HTTP_SEE_OTHER);
         }
 
@@ -71,7 +81,7 @@ class UserController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            $this->addFlash('success', $t->trans('user.edited'));
+            $this->addFlash('success', $t->trans('user.edited', ['%mail%' => $user->getEmail()]));
             return $this->redirectToRoute('user_index', [], Response::HTTP_SEE_OTHER);
         }
 
@@ -91,7 +101,7 @@ class UserController extends AbstractController
             $entityManager->remove($user);
             $entityManager->flush();
         }
-        $this->addFlash('warning', $t->trans('user.deleted'));
+        $this->addFlash('warning', $t->trans('user.deleted', ['%mail%' => $user->getEmail()]));
         return $this->redirectToRoute('user_index', [], Response::HTTP_SEE_OTHER);
     }
 }

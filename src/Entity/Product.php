@@ -9,6 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 /**
  * @ORM\Entity(repositoryClass=ProductRepository::class)
+ * @ORM\HasLifecycleCallbacks()
  */
 class Product
 {
@@ -132,6 +133,20 @@ class Product
         $this->image = $image;
 
         return $this;
+    }
+
+    /**
+     * @ORM\PostRemove
+     */
+    public function deleteImage(): bool
+    {
+        if (!empty($this->image)){
+            $path = __DIR__.'/../../public/uploads/'.$this->image;
+            if (file_exists($path)) {
+                unlink($path);
+            }
+        }
+        return true;
     }
 
     public function __toString()

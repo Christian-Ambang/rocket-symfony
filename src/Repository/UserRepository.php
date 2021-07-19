@@ -36,6 +36,13 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
         $this->_em->flush();
     }
 
+    public function findDailyRegister() {
+        $qb = $this->createQueryBuilder('a')
+            ->orderBy('a.id', 'DESC');
+            //->setMaxResults(2);
+        $query = $qb->getQuery();
+        return $query->execute();
+    }
     // /**
     //  * @return User[] Returns an array of User objects
     //  */
