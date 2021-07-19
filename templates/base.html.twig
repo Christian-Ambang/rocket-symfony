@@ -38,11 +38,18 @@
             <ul>
                 <li><a href="{{ path('home') }}">{{ "Home" | trans }}</a></li>
                 <li><a href="{{ path('product_index') }}">{{ "Product" | trans }}</a></li>
+                <br>
+                {% if is_granted("ROLE_SUPERADMIN") %}
+                    SuperAdmin navbar
+                    <li><a href="{{ path('superadmin_cart_index') }}">{{ "Unpaid order(s)" | trans }}</a></li>
+                    <li><a href="{{ path('superadmin_user_index') }}">{{ "Most recent user(s)" | trans }}</a></li>
+                {% endif %}
+                <br>
+                For dev only (to remove later)
                 <li><a href="{{ path('user_index') }}">{{ "User" | trans }}</a></li>
-                <div>--debut-test--</div>
                 <li><a href="{{ path('cart_index') }}">{{ "Orders" | trans }}</a></li>
                 <li><a href="{{ path('content_cart_index') }}">{{ "ContentCart" | trans }}</a></li>
-                <div>--fin-test--</div>
+
             </ul>
         </nav>
         {% for type, messages in app.flashes %}

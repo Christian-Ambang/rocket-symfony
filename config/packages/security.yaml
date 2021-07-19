@@ -46,15 +46,18 @@ security:
         - { path: ^/en/product/new, roles: ROLE_USER }
         - { path: ^/fr/product/new, roles: ROLE_USER }
         ## User
+        - { path: ^/en/user/superadmin, roles: ROLE_SUPERADMIN }
+        - { path: ^/fr/user/superadmin, roles: ROLE_SUPERADMIN }
         - { path: ^/en/user/all, roles: ROLE_ADMIN }
         - { path: ^/fr/user/all, roles: ROLE_ADMIN }
         - { path: ^/en/user/delete, roles: ROLE_ADMIN }
         - { path: ^/fr/user/delete, roles: ROLE_ADMIN }
         ## Cart
+        - { path: ^/en/cart/superadmin, roles: ROLE_SUPERADMIN }
+        - { path: ^/fr/cart/superadmin, roles: ROLE_SUPERADMIN }
         - { path: ^/en/cart/all, roles: ROLE_ADMIN }
         - { path: ^/fr/cart/all, roles: ROLE_ADMIN }
         - { path: ^/en/cart/edit, roles: ROLE_ADMIN }
         - { path: ^/fr/cart/edit, roles: ROLE_ADMIN }
         - { path: ^/en/cart/delete, roles: ROLE_ADMIN }
         - { path: ^/fr/cart/delete, roles: ROLE_ADMIN }
-        #- { path: ^/profile, roles: ROLE_USER }

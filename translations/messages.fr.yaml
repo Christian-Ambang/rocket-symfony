@@ -5,8 +5,15 @@ Register: S'inscrire
 My cart: Mon panier
 My account: Mon compte
 
+## NavBar
 Home: Accueil
 Product: Produit
+
+## SuperAdmin NavBar
+Unpaid order(s): Commande(s) non payée(s)
+Most recent user(s): Utilsateur(s) récent
+
+## Dev NavBar
 User: Utilisateur
 
 ## CRUD

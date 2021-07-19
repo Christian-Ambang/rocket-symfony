@@ -28,6 +28,15 @@ class CartController extends AbstractController
     }
 
     /**
+     * @Route("/superadmin", name="superadmin_cart_index", methods={"GET"})
+     */
+    public function superadmin_cart_index(CartRepository $cartRepository): Response
+    {
+        return $this->render('cart/index.html.twig', [
+            'carts' => $cartRepository->unpaidCart(),
+        ]);
+    }
+    /**
      * @Route("/new", name="cart_new", methods={"GET","POST"})
      */
     public function new(Request $request): Response // prenait une requète en paramètre à la base

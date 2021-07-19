@@ -21,7 +21,7 @@
             <tr>
                 <td>{{ cart.id }}</td>
                 <td>{{ cart.user }}</td>
-                <td>{{ cart.contentCart }}</td>
+                <td>{#{{ cart.contentCart }}#}</td>
                 <td>{{ cart.purchaseDate ? cart.purchaseDate|date('Y-m-d H:i:s') : '' }}</td>
                 <td>{{ cart.paid ? 'Yes' : 'No' }}</td>
                 <td>
