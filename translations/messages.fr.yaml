@@ -2,7 +2,7 @@
 Log in: Connexion
 Log out: Déconnexion
 Register: S'inscrire
-Cart: Panier
+My cart: Mon panier
 My account: Mon compte
 
 Home: Accueil
@@ -44,6 +44,16 @@ cart:
     update: Modifier la commande
     deleted?: Voulez vous supprimer cette commande?
     deleted: La commande %ID% à bien été supprimée
+contentCart:
+    added:
+    created:
+    edited:
+    empty: Votre panier est vide
+    new:
+    list:
+    update:
+    deleted?:
+    deleted:
 actions: actions
 Back to list: Revenir à la liste
 Save: Enregistrer
@@ -66,3 +76,7 @@ Purchase date: Date d'achat
 Paid: Payée
 Order: Commande
 Orders: Commandes
+
+## ContentCart
+Quantity: Quantité
+Added the: Ajouté le

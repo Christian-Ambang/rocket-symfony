@@ -29,4 +29,13 @@ cart:
     update: Update order
     deleted?: Do you want to deleted this order?
     deleted: The order %ID% has been deleted
-
+contentCart:
+    added:
+    created:
+    edited:
+    empty: Empty cart
+    new:
+    list:
+    update:
+    deleted?:
+    deleted:
