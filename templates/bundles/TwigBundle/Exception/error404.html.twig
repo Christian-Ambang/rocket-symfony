@@ -2,7 +2,7 @@
 {% extends 'error_base.html.twig' %}
 {% block title %}Page not found{% endblock %}
 {% block style %}
-
+<style>
 @charset "UTF-8";
 
 /***********************************
@@ -533,9 +533,9 @@ button {
     margin-top: 20px;
   }
 }
+</style>
 {% endblock %}
 {% block body %}
-    <a href="{{path("home")}}">
   <header class="top-header">
 </header>
 
@@ -546,7 +546,7 @@ button {
   <div class="starfourth"></div>
   <div class="starfifth"></div>
 </div>
-<!--Dust particle end--->
+<!--Dust particle end-->
 
 
 <div class="lamp__wrap">
@@ -568,12 +568,10 @@ button {
       <p class="message__text">The requested page couldn't be located. Checkout for any URL misspelling</p>
     </div>
     <div class="error__nav e-nav">
-      <a href="{{path("home")}}"  class="e-nav__link"></a>
+      <a href="{{app.request.schemeAndHttpHost}}"  class="e-nav__link"></a>
     </div>
   </div>
   <!-- END Content -->
 
 </section>
-
-  </a>
 {% endblock %}

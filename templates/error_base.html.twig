@@ -3,11 +3,11 @@
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}{% endblock %}</title>
-        <style>{% block style %}{% endblock %}</style>
+        {% block style %}{% endblock %}
     </head>
     <body>
         {% block body %}{% endblock %}
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-        <script>{% block javascript %}{% endblock %}</script>
+        {% block javascripts %}{% endblock %}
     </body>
 </html>
