@@ -28,7 +28,7 @@
                         {% else %}
                             <li><a href="{{ path('user_show', { 'id': app.user.id }) }}">{{ "My account" | trans }}</a></li>
                             <li class="nav-item"><a class="nav-link" href="{{ path('app_logout') }}">{{ "Log out" | trans }}</a></li>
-                            <li class="nav-item"><a class="nav-link" href="{{ path('content_cart_index') }}">{{ "Cart" | trans }}</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{{ path('content_cart_index') }}">{{ "My cart" | trans }}</a></li>
                         {% endif %}
                     </ul>
                 </div>

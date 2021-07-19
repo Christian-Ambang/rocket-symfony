@@ -1,17 +1,17 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Mon panier{% endblock %}
+{% block title %}{{ "My cart" | trans }}{% endblock %}
 
 {% block body %}
-    <h1>Mon panier</h1>
+    <h1>{{ "My cart" | trans }}</h1>
 
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th> 
-                <th>ProductQty</th>
-                <th>AddToCartDate</th>
-                <th>actions</th>
+                <th>{{ "ID" | trans }}</th>
+                <th>{{ "Quantity" | trans }}</th>
+                <th>{{ "Added the" | trans }}</th>
+                <th>{{ "actions" | trans }}</th>
             </tr>
         </thead>
         <tbody>
@@ -21,13 +21,13 @@
                 <td>{{ content_cart.productQty }}</td>
                 <td>{{ content_cart.addToCartDate ? content_cart.addToCartDate|date('Y-m-d H:i:s') : '' }}</td>
                 <td>
-                    <a href="{{ path('content_cart_show', {'id': content_cart.id}) }}">show</a>
-                    <a href="{{ path('content_cart_edit', {'id': content_cart.id}) }}">edit</a>
+                    <a href="{{ path('content_cart_show', {'id': content_cart.id}) }}">{{ "show" | trans }}</a>
+                    <a href="{{ path('content_cart_edit', {'id': content_cart.id}) }}">{{ "edit" | trans }}</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="4">Vous n'avez aucun article dans votre panier</td>
+                <td colspan="4">{{ "contentCart.empty" | trans }}</td>
             </tr>
         {% endfor %}
         </tbody>
