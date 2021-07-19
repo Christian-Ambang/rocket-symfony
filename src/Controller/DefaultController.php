@@ -8,7 +8,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/{_locale}")
+ * @Route("/{_locale}",defaults={"_locale":"fr"},requirements={"_locale":"en|fr"})
  */
 class DefaultController extends AbstractController
 {
@@ -17,8 +17,10 @@ class DefaultController extends AbstractController
      */
     public function index(ProductRepository $productRepository): Response
     {
+
         return $this->render('default/index.html.twig', [
             'products' => $productRepository->findAll(),
+
         ]);
     }
 }

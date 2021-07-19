@@ -15,8 +15,8 @@
         {% endblock %}
     </head>
     <body>
-    <li><a href="{{ '/fr/' }}">{{ "FR" | trans }}</a></li>
-    <li><a href="{{ '/en/' }}">{{ "EN" | trans }}</a></li>
+    <li><a href="{{ path(app.request.attributes.get('_route'),{'_locale':'fr'}) }}">{{ "FR" | trans }}</a></li>
+    <li><a href="{{ path(app.request.attributes.get('_route'),{'_locale':'en'}) }}">{{ "EN" | trans }}</a></li>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
                 <div class="collapse navbar-collapse">
