@@ -29,7 +29,11 @@
             </tr>
             <tr>
                 <th>{{ "Image" | trans }}</th>
-                <td>{{ product.image }}</td>
+                <td>
+                    {% if product.image is not null %}
+                        <img src="{{ '/uploads/' ~ product.image }}" alt="{{ product.name }}" width="500">
+                    {% endif %}
+                </td>
             </tr>
         </tbody>
     </table>

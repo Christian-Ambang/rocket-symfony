@@ -18,7 +18,11 @@
             <td>{{ product.description }}</td>
             <td>{{ product.price }}</td>
             <td>{{ product.stock }}</td>
-            <td>{{ product.image }}</td>
+            <td>
+                {% if product.image is not null %}
+                <img src="{{ '/uploads/' ~ product.image }}" alt="{{ product.name }}" width="80">
+                {% endif %}
+            </td>
             <td>
                 <a href="{{ path('product_show', {'id': product.id}) }}">{{ "show" | trans }}</a>
                 {% if is_granted("ROLE_ADMIN") %}

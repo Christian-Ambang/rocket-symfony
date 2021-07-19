@@ -134,6 +134,20 @@ class Product
         return $this;
     }
 
+    /**
+     * @ORM\PostRemove
+     */
+    public function deleteImage(): bool
+    {
+        if (!empty($this->image)){
+            $path = __DIR__.'/../../public/uploads/'.$this->image;
+            if (file_exists($path)) {
+                unlink($path);
+            }
+        }
+        return true;
+    }
+
     public function __toString()
     {
         return $this->name;
