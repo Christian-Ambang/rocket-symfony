@@ -17,7 +17,7 @@
             </tr>
             <tr>
                 <th>{{ "Paid" | trans }}</th>
-                <td>{{ cart.paid ? 'Yes' : 'No' }}</td>
+                <td>{{ cart.paid ? ("Yes" | trans) : ("No" | trans) }}</td>
             </tr>
         </tbody>
     </table>

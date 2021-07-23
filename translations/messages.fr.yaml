@@ -22,7 +22,7 @@ show: voir
 edit: modifier
 Update: Appliquer
 product:
-    added: Creer un produit
+    added: Créer un produit
     created: Le produit %name% a été crée
     edited: Le produit %name% a été mis a jour
     empty: Pas de produit trouvé
@@ -32,7 +32,7 @@ product:
     deleted?: Voulez vous supprimer ce produit?
     deleted: Le produit %name% à bien été supprimé
 user:
-    added: Creer un utilisateur
+    added: Créer un utilisateur
     created: L'utilisateur %mail% a été crée
     edited: L'utilisateur %name% a été mis a jour
     empty: Pas d'utilisateur trouvé
@@ -42,7 +42,7 @@ user:
     deleted?: Voulez vous supprimer cet utilisateur?
     deleted: L'utilisateur %mail% à bien été supprimé
 cart:
-    added: Creer une commande
+    added: Créer une commande
     created: La commande %ID% a été crée
     edited: La commande %ID% a été mis a jour
     empty: Pas de commande trouvé
@@ -83,6 +83,8 @@ Purchase date: Date d'achat
 Paid: Payée
 Order: Commande
 Orders: Commandes
+Yes: Oui
+No: Non
 
 ## ContentCart
 Quantity: Quantité
