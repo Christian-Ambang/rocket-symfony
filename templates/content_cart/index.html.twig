@@ -18,8 +18,10 @@
         </thead>
         <tbody>
         {% set total = 0 %}
+        {% set id = null %}
         {% for content_cart in content_carts %}
             {% set total = total + content_cart.productQty * content_cart.product.price %}
+            {% set id = content_cart.cart.id %}
             <tr>
                 <td>{{ content_cart.product.name }}</td>
                 <td>{{ content_cart.productQty }}</td>
@@ -43,5 +45,8 @@
 
     {# <a href="{{ path('content_cart_new') }}">Create new</a> #}
     <p>Montant total du panier: {{total}} </p>
-    <a class="btn btn-primary">Valider</a>
+    <form method="post" action="{{ path('content_cart_buy', {'id': id}) }}" onsubmit="return confirm('Are you sure you want to buy all article ?');">
+        <input type="hidden" name="_token" value="{{ csrf_token('buy' ~ id) }}">
+        <button class="btn btn-primary">Valider</button>
+    </form>
 {% endblock %}

@@ -19,6 +19,15 @@ class ContentCartRepository extends ServiceEntityRepository
         parent::__construct($registry, ContentCart::class);
     }
 
+    // public function unpaidCart() {
+    //     $qb = $this->createQueryBuilder('cart')
+    //         ->orderBy('cart.purchase_date', 'ASC')
+    //         ->where('cart.paid = 0')
+    //     ;
+    //     $query = $qb->getQuery();
+    //     return $query->execute();
+    // }
+
     // /**
     //  * @return ContentCart[] Returns an array of ContentCart objects
     //  */

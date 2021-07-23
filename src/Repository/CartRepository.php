@@ -27,6 +27,22 @@ class CartRepository extends ServiceEntityRepository
         $query = $qb->getQuery();
         return $query->execute();
     }
+
+    /**
+     * @method Cart|null buyCart()
+     */
+    public function buyCart($id) {
+        $qb = $this->createQueryBuilder('buy')
+            ->update()
+            ->set('buy.paid', true)
+            ->where('buy.id =:id')
+            ->setParameter('id', $id)
+        ;
+        $query = $qb->getQuery();
+        return $query->execute();
+    }
+
+    
     // /**
     //  * @return Cart[] Returns an array of Cart objects
     //  */

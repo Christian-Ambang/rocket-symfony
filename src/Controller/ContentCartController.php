@@ -7,6 +7,7 @@ use App\Entity\ContentCart;
 use App\Entity\Product;
 use App\Form\ContentCartType;
 use App\Repository\ContentCartRepository;
+use App\Repository\CartRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -117,5 +118,18 @@ class ContentCartController extends AbstractController
         return $this->render('content_cart/show.html.twig', [
             'content_cart' => $contentCart,
         ]);
+    }
+
+    /**
+     * @Route("/buy/{id}", name="content_cart_buy", methods={"POST"})
+     */
+    public function buy(Request $request, Cart $Cart): Response
+    {
+        if ($this->isCsrfTokenValid('buy'.$Cart->getId(), $request->request->get('_token'))) {
+            $entityManager = $this->getDoctrine()->getRepository(Cart::class);
+            $entityManager-> buyCart($Cart->getId());
+        }
+
+        return $this->redirectToRoute('content_cart_index', [], Response::HTTP_SEE_OTHER);
     }
 }

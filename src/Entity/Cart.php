@@ -13,11 +13,6 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Cart
 {
-    public function __construct()
-    {
-        $this->purchase_date = new \DateTime();
-        $this->contentCarts = new ArrayCollection();
-    }
 
     /**
      * @ORM\Id
@@ -45,9 +40,15 @@ class Cart
     private $paid;
 
     /**
-     * @ORM\OneToMany(targetEntity=ContentCart::class, mappedBy="cart", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity=ContentCart::class, mappedBy="cart", orphanRemoval=true, cascade={"persist"})
      */
     private $contentCarts;
+
+    public function __construct()
+    {
+        $this->purchase_date = new \DateTime();
+        $this->contentCarts = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -93,11 +94,21 @@ class Cart
     /**
      * @return Collection|ContentCart[]
      */
+
+
+    // public function getContentCart(): array
+    // {
+    //     return $this->contentCarts->toArray();
+    // }
     public function getContentCart(): Collection
     {
         return $this->contentCarts;
     }
 
+//     public function setContentCart(array $contentCarts)
+// {
+//     $this->contentCarts = new ArrayCollection($contentCarts);
+// }
 
     public function addContentCart(ContentCart $contentCart): self
     {
@@ -124,6 +135,15 @@ class Cart
     public function __toString()
     {
         // return 'User: '. (string) $this->user .' | Cart id: '.$this->id;
+        // if(is_null($this->user)) {
+        //     return 'NULL';
+        // }    
+        // return 'User: '. (string) $this->user .' | Cart id: '.$this->id.' | Paid: '.$this->paid.' | Date: '.$this->purchase_date.' | Carts: '.$this->contentCarts;
+        // return __CLASS__ . '@' . spl_object_hash($this->contentCarts);
+        
+        // $format = "Participation (Id: %s, %s, %s)\n";
+        // return sprintf($format, $this->id, $this->user, $this->paid,);
+        // return 'User: '. $this->user .' | Cart id: '.$this->id;
         return $this->id;
     }
 }

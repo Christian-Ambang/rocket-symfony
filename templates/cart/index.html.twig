@@ -21,7 +21,8 @@
             <tr>
                 <td>{{ cart.id }}</td>
                 <td>{{ cart.user }}</td>
-                <td>{# cart.contentCart #}A faire</td>
+                {# <td>{% for content in cart.contentCart %}{{content.id}}{% endfor %}</td> #}
+                <td>{% for content in cart.contentCart %}{{content.id}}{% endfor %}</td>
                 <td>{{ cart.purchaseDate ? cart.purchaseDate|date('Y-m-d H:i:s') : '' }}</td>
                 <td>{{ cart.paid ? 'Yes' : 'No' }}</td>
                 <td>
