@@ -6,6 +6,7 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 use App\Entity\User;
 use App\Form\UserType;
 use App\Repository\UserRepository;
+use App\Repository\CartRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -63,10 +64,11 @@ class UserController extends AbstractController
     /**
      * @Route("/{id}", name="user_show", methods={"GET"})
      */
-    public function show(User $user): Response
+    public function show(User $user, CartRepository $cartRepository): Response
     {
         return $this->render('user/show.html.twig', [
             'user' => $user,
+            'carts' => $cartRepository->getCartByUserId($user->getId()),
         ]);
     }
 

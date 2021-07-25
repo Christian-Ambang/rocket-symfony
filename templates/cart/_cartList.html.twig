@@ -1,0 +1,34 @@
+<table class="table">
+    <thead>
+    <tr>
+        <th>{{ "ID" | trans }}</th>
+        <th>{{ "User" | trans }}</th>
+        <th>{{ "Content ID" | trans }}</th>
+        <th>{{ "Purchase date" | trans}}</th>
+        <th>{{ "Paid" | trans }}</th>
+        <th>{{ "actions" | trans}}</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for cart in carts %}
+        <tr>
+            <td>{{ cart.id }}</td>
+            <td>{{ cart.user }}</td>
+            {# <td>{% for content in cart.contentCart %}{{content.id}}{% endfor %}</td> #}
+            <td>{% for content in cart.contentCart %}{{content.id}}{% endfor %}</td>
+            <td>{{ cart.purchaseDate ? cart.purchaseDate|date('Y-m-d H:i:s') : '' }}</td>
+            <td>{{ cart.paid ? ("Yes" | trans) : ("No" | trans) }}</td>
+            <td>
+                <a href="{{ path('cart_show', {'id': cart.id}) }}">{{ "show" | trans }}</a>
+                <a href="{{ path('cart_edit', {'id': cart.id}) }}">{{ "edit" | trans }}</a>
+            </td>
+        </tr>
+    {% else %}
+        <tr>
+            <td colspan="4">{{ "cart.empty" | trans }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+<a href="{{ path('cart_new') }}">{{ "cart.added" | trans }}</a>

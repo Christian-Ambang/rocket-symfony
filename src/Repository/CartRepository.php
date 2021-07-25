@@ -28,6 +28,15 @@ class CartRepository extends ServiceEntityRepository
         return $query->execute();
     }
 
+    public function getCartByUserId($id) {
+        $qb = $this->createQueryBuilder('cart')
+            ->orderBy('cart.purchase_date', 'ASC')
+            ->where("cart.user = $id")
+        ;
+        $query = $qb->getQuery();
+        return $query->execute();
+    }
+
     /**
      * @method Cart|null buyCart()
      */
