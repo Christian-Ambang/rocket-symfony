@@ -45,11 +45,9 @@
                     <li><a href="{{ path('superadmin_user_index') }}">{{ "Most recent user(s)" | trans }}</a></li>
                 {% endif %}
                 <br>
-                For dev only (to remove later)
+                {{ "For dev only" | trans }}
                 <li><a href="{{ path('user_index') }}">{{ "User" | trans }}</a></li>
                 <li><a href="{{ path('cart_index') }}">{{ "Orders" | trans }}</a></li>
-                <li><a href="{{ path('content_cart_index') }}">{{ "ContentCart" | trans }}</a></li>
-
             </ul>
         </nav>
         {% for type, messages in app.flashes %}
