@@ -10,8 +10,7 @@
             <tr>
                 <th>{{ "ID" | trans }}</th>
                 <th>{{ "Quantity" | trans }}</th>
-                <th>{{ "Price" | trans }}</th>
-                <th>{{ "Montant" | trans }}</th>
+                <th>{{ "Amount" | trans }}</th>
                 <th>{{ "Added the" | trans }}</th>
                 <th>{{ "actions" | trans }}</th>
             </tr>
@@ -24,8 +23,9 @@
             {% set id = content_cart.cart.id %}
             <tr>
                 <td>{{ content_cart.product.name }}</td>
-                <td>{{ content_cart.productQty }}</td>
-                <td>{{ content_cart.product.price }}</td>
+                <td>
+                    {{ content_cart.productQty }}
+                </td>
                 <td>{{ content_cart.productQty * content_cart.product.price }}</td>
                 <td>{{ content_cart.addToCartDate ? content_cart.addToCartDate|date('d-m-Y H:i:s') : '' }}</td>
                 <td>
