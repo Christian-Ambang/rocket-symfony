@@ -9,6 +9,7 @@
         <thead>
             <tr>
                 <th>{{ "ID" | trans }}</th>
+                <th>{{ "Product's name" | trans }}</th>
                 <th>{{ "Quantity" | trans }}</th>
                 <th>{{ "Amount" | trans }}</th>
                 <th>{{ "Added the" | trans }}</th>
@@ -22,6 +23,7 @@
             {% set total = total + content_cart.productQty * content_cart.product.price %}
             {% set id = content_cart.cart.id %}
             <tr>
+                <td>{{ content_cart.product.id }}</td>
                 <td>{{ content_cart.product.name }}</td>
                 <td>
                     {{ content_cart.productQty }}
