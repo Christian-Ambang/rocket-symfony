@@ -23,8 +23,34 @@ class ContentCartController extends AbstractController
      */
     public function index(ContentCartRepository $contentCartRepository): Response
     {
+        $contentCart = $contentCartRepository->findAll();
+
+        /*$productCartArray = [];
+        foreach ($contentCart as $key => $productCart) {
+
+            if( !in_array($productCart->getProduct()->getId(), $productCartArray){
+
+
+            $productCartArray[] = [
+                'id' => $productCart->getProduct()->getId(),
+                //'name' => $productCart->getProduct()->getName(),
+                'quantity' => $productCart->getProductQty(),
+            ];
+        }
+        }
+
+        echo "<pre>";
+        var_dump($productCartArray);
+        echo "</pre>";
+
+        var_dump($productCartArray[0]['id']);*/
+
+/*        if (in_array(14, $productCartArray)) {
+            echo "YES";
+        } else { echo "NO"; }*/
+
         return $this->render('content_cart/index.html.twig', [
-            'content_carts' => $contentCartRepository->findAll(),
+            'content_carts' => $contentCart,
         ]);
     }
 
