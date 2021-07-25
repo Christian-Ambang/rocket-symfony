@@ -1,13 +1,13 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit ContentCart{% endblock %}
+{% block title %}{{ "contentCart.update" | trans }}{% endblock %}
 
 {% block body %}
-    <h1>Edit ContentCart</h1>
+    <h1>{{ "contentCart.update" | trans }}</h1>
 
-    {{ include('content_cart/_form.html.twig', {'button_label': 'Update'}) }}
+    {{ include('content_cart/_form.html.twig', {'button_label': 'Update' | trans}) }}
 
-    <a href="{{ path('content_cart_index') }}">back to list</a>
+    <a href="{{ path('content_cart_index') }}">{{ "Back to list" | trans }}</a>
 
     {{ include('content_cart/_delete_form.html.twig') }}
 {% endblock %}

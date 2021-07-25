@@ -44,9 +44,9 @@
     </table>
 
     {# <a href="{{ path('content_cart_new') }}">Create new</a> #}
-    <p>Montant total du panier: {{total}} </p>
-    <form method="post" action="{{ path('content_cart_buy', {'id': id}) }}" onsubmit="return confirm('Are you sure you want to buy all article ?');">
+    <p>{{ "Total amount" | trans }}: {{total}} €</p>
+    <form method="post" action="{{ path('content_cart_buy', {'id': id}) }}" onsubmit="return confirm('{{ "contentCart.allBuy?" | trans }}');">
         <input type="hidden" name="_token" value="{{ csrf_token('buy' ~ id) }}">
-        <button class="btn btn-primary">Valider</button>
+        <button class="btn btn-primary">{{ "Buy in" | trans }}</button>
     </form>
 {% endblock %}

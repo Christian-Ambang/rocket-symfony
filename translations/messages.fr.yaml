@@ -58,9 +58,10 @@ contentCart:
     empty: Votre panier est vide
     new:
     list:
-    update:
-    deleted?:
+    update: Modifier la commande du produit
+    deleted?: Etes vous sur de vouloir retirer ce produit du panier?
     deleted:
+    allBuy?: Etes vous sur de vouloir acheter tous ces produits?
 actions: actions
 Back to list: Revenir à la liste
 Save: Enregistrer
@@ -89,3 +90,7 @@ No: Non
 ## ContentCart
 Quantity: Quantité
 Added the: Ajouté le
+Buy in: Acheter
+Total amount: Montant total
+Remove: Retirer
+Product's name: Nom du produit

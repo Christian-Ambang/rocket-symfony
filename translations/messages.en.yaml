@@ -36,6 +36,7 @@ contentCart:
     empty: Empty cart
     new:
     list:
-    update:
-    deleted?:
+    update: Edit the product's order
+    deleted?: Are you sure you want to remove this product from cart?
     deleted:
+    allBuy?: Are you sure you want to buy all of these products?
