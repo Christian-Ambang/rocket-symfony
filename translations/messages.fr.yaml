@@ -61,7 +61,7 @@ contentCart:
     update: Modifier la commande du produit
     deleted?: Etes vous sur de vouloir retirer ce produit du panier?
     deleted:
-    allBuy?: Etes vous sur de vouloir acheter tous ces produits?
+    allBuy?: Etes vous sur de vouloir passer commande de tous ces produits?
 actions: actions
 Back to list: Revenir à la liste
 Save: Enregistrer
@@ -90,7 +90,7 @@ No: Non
 ## ContentCart
 Quantity: Quantité
 Added the: Ajouté le
-Buy in: Acheter
+Make order: Passer commande
 Amount: Montant
 Total amount: Montant total
 Remove: Retirer

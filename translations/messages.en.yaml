@@ -39,4 +39,4 @@ contentCart:
     update: Edit the product's order
     deleted?: Are you sure you want to remove this product from cart?
     deleted:
-    allBuy?: Are you sure you want to buy all of these products?
+    allBuy?: Are you sure you want to make order of these products?

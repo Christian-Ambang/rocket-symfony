@@ -147,13 +147,13 @@ class ContentCartController extends AbstractController
     }
 
     /**
-     * @Route("/buy/{id}", name="content_cart_buy", methods={"POST"})
+     * @Route("/order/{id}", name="content_cart_order", methods={"POST"})
      */
-    public function buy(Request $request, Cart $Cart): Response
+    public function makeOrder(Request $request, Cart $cart): Response
     {
-        if ($this->isCsrfTokenValid('buy'.$Cart->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('buy'.$cart->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getRepository(Cart::class);
-            $entityManager-> buyCart($Cart->getId());
+            $entityManager-> buyCart($cart->getId());
         }
 
         return $this->redirectToRoute('content_cart_index', [], Response::HTTP_SEE_OTHER);
