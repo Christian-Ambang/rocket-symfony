@@ -29,7 +29,6 @@ class Cart
 
     /**
      * @ORM\Column(type="datetime", nullable=true)
-     * @Assert\DateTime
      * @Assert\NotBlank
      */
     private $purchase_date;
